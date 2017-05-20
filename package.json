@@ -1,6 +1,6 @@
 {
   "name": "language-bot",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Adds syntax highlighting to Botlang files in Atom",
   "author": {
     "name": "Mathias Schilling",
@@ -8,10 +8,12 @@
     "url": "https://www.matchilling.com"
   },
   "homepage": "https://botlang.org",
-  "licenses": [{
-    "type": "GPL-3.0",
-    "url": "https://github.com/botlang/atom-language-botlang/blob/master/LICENSE"
-  }],
+  "licenses": [
+    {
+      "type": "GPL-3.0",
+      "url": "https://github.com/botlang/atom-language-botlang/blob/master/LICENSE"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/botlang/atom-language-botlang.git"
