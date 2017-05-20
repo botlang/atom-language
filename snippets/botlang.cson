@@ -1,4 +1,7 @@
-'.source.botlang':
-  '#!/usr/bin/env botlang':
-    'prefix': 'env'
-    'body': '#!/usr/bin/env botlang\n'
+".text.botlang":
+  'trigger':
+    'prefix': 'tri'
+    'body': '+ "$1"$0'
+  'reply':
+    'prefix': 'rep'
+    'body': '- "$1"$0'

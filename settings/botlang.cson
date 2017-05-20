@@ -1,6 +1,6 @@
-'.source.botlang':
+'.text.botlang':
   'editor':
-    'autoIndentOnPaste': false
+    'autoIndentOnPaste': true
     'softTabs': true
     'tabLength': 2
-    'commentStart': '// '
+    'commentStart': '# '

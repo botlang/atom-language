@@ -1,18 +1,113 @@
-name: "Botlang"
-scopeName: "text.botlang"
+name: 'Botlang'
+
+scopeName: 'text.botlang'
+
 fileTypes: [
-  "bot"
+  'bot', 'botlang'
 ]
+
 patterns: [
   {
-    include: "#comments"
+    include: '#comment'
+  },
+  {
+    include: '#reply'
+  },
+  {
+    include: '#trigger'
   }
 ]
+
 repository:
-  comments:
+  comment:
     patterns: [
       {
-        match: "//.*$"
-        name: "comment.line.double-slash"
+        match: "#.*$"
+        name: "comment.line.hash"
+      }
+    ]
+  characters:
+    patterns: [
+      {
+        match: "(\\|)"
+        name: "keyword.control"
+      }
+    ]
+  mutiple:
+    patterns: [
+      {
+        begin: "(\\s?\\()([a-zA-Z0-9\\'\\s\\-]*)(\\|)"
+        beginCaptures:
+          1:
+            name: "keyword.other"
+          2:
+            name: "string.unquoted"
+          3:
+            name: "keyword.other"
+        contentName: "string.unquoted"
+        end: "(\\))"
+        endCaptures:
+          1:
+            name: "keyword.control"
+        name: "meta.mutiple"
+        patterns: [
+          {
+            include: "#characters"
+          }
+        ]
+      }
+    ]
+  reply:
+    patterns: [
+      {
+        begin: "^(\\s*\\-\\s|\\s*\\?\\:*[a-zA-Z\\:]*|\\s*\\?\\s)"
+        beginCaptures:
+          1:
+            name: "keyword.other"
+        contentName: "string.unquoted"
+        end: "$"
+        name: "meta.trigger"
+        patterns: [
+          {
+            include: "#substitution"
+          }
+        ]
+      }
+    ]
+  trigger:
+    patterns: [
+      {
+        begin: "^(\\s*\\+\\s|\\s*\\?\\:*[a-zA-Z\\:]*|\\s*\\?\\s)"
+        beginCaptures:
+          1:
+            name: "keyword.other"
+        contentName: "string.unquoted"
+        end: "$"
+        name: "meta.trigger"
+        patterns: [
+          {
+            include: "#mutiple"
+          }
+          {
+            include: "#substitution"
+          },
+          {
+            include: "#wildcard"
+          }
+        ]
+      }
+    ]
+  substitution:
+    patterns: [
+      {
+        match: "(\\$)"
+        name: "support.function.builtin.botlang"
+      }
+    ]
+  wildcard:
+    patterns: [
+      {
+        match: "(\\*)"
+        name: "support.function.builtin.botlang"
       }
     ]
