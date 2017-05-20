@@ -1,6 +1,6 @@
 # Botlang support for Atom
 
-Adds syntax highlighting and snippets to Botlang files in Atom.
+Adds syntax highlighting and snippets to [Botlang](https://botlang.org) files in Atom.
 
 ![screenshot: syntax highlighting botlang](./example.png)
 
